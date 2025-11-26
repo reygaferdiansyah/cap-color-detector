@@ -119,8 +119,34 @@ Class Dominance: The curves for Dark-Blue and Light-Blue maintain high scores fo
 Normalized:
 ![Normalized Confusion Matrix](yolov12/nano/final_v12_nano/confusion_matrix_normalized.png)
 
+
+Here is the concise and critical explanation for the Confusion Matrix results in English:
+
+Confusion Matrix Evaluation Summary:
+
+Perfect Classification Accuracy: The diagonal values are all 1.00. This indicates 100% accuracy for all three classes (Dark-Blue, Light-Blue, Others). Every time an object was detected, the model correctly identified its specific color/class without fail.
+
+Zero Class Confusion: The off-diagonal cells between the classes are empty (0.00). This proves the model has learned distinct features perfectly; it never confuses a Light-Blue cap with a Dark-Blue one, or vice versa. The separation between classes is flawless.
+
+Ghost Detection (False Positive): There is a value of 1.00 in the top-right corner (True: background, Predicted: Dark-Blue).
+
+Interpretation: This indicates a False Positive. The model detected a "Dark-Blue" object in an empty area (background) where there was actually nothing. While the classification of actual objects is perfect, the model is slightly too aggressive and "hallucinated" an object in the background.
+
+
 Original:
 ![Confusion Matrix](yolov12/nano/final_v12_nano/confusion_matrix.png)
+
+
+Raw Confusion Matrix Evaluation Summary:
+
+Flawless Object Counts: The diagonal numbers (11, 2, and 5) represent the correct detections. The model successfully identified all 18 valid objects in the validation set (11 Dark-Blue, 2 Light-Blue, 5 Others) without missing a single one.
+
+No Inter-Class Errors: The cells between the classes are empty. This confirms that the model never mixed up the cap colors (e.g., it never counted a Light-Blue cap as Dark-Blue).
+
+Specific Error Source (Background False Positives): The matrix highlights exactly 2 errors in the top-right corner (Predicted: Dark-Blue, True: background).
+
+Insight: The model "hallucinated" 2 Dark-Blue caps in empty space. This suggests that while the model is excellent at classification, it is slightly "trigger-happy" and aggressive in detecting Dark-Blue features in the background.
+
 
 ### Results
 ![Results](yolov12/nano/final_v12_nano/results.png)
@@ -131,4 +157,5 @@ Original:
 ## 👤 Author
 
 Reyga Ferdiansyah
+
 
