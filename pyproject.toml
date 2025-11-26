@@ -1,0 +1,23 @@
+[project]
+name = "bsort"                     
+version = "0.1.0"
+description = "Cap Color Detector CLI"
+requires-python = ">=3.10"
+dependencies = [
+    "ultralytics>=8.3.0",
+    "roboflow",
+    "wandb",
+    "pyyaml",
+    "click",
+    "pillow"
+]
+
+[project.scripts]
+bsort = "bsort.cli:cli"             
+
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
