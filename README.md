@@ -73,6 +73,9 @@ I evaluated **6 different models** (YOLOv11 & YOLOv12 in Nano, Small, and Medium
 The **YOLOv12n** was selected as the best performing model.  
 It achieved the **highest mAP@50-95 (74.4%)** and near-perfect **Recall (99.9%)**, making it the most reliable choice for sorting tasks where missing a bottle cap is critical.
 
+<img width="1384" height="684" alt="image" src="https://github.com/user-attachments/assets/26cf6b89-3642-4c7d-bff9-485e25193a36" />
+
+
 ---
 
 ### Performance Comparison Table
@@ -183,6 +186,7 @@ Insight: Although the confidence drops for these partial objects (0.3 and 0.6), 
 ## 👤 Author
 
 Reyga Ferdiansyah
+
 
 
 
