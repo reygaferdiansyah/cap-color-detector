@@ -1,6 +1,8 @@
-import wandb
 import os
-from typing import Dict, Any
+from typing import Any, Dict
+
+import wandb
+
 
 def init_wandb(cfg: Dict[str, Any]) -> Any:
     """Initializes a Weights & Biases run for experiment tracking.
@@ -21,5 +23,5 @@ def init_wandb(cfg: Dict[str, Any]) -> Any:
     return wandb.init(
         project="cap-color-detector",
         name=f"{cfg['training']['model_size']}_{cfg['training']['name']}",
-        config=cfg
+        config=cfg,
     )

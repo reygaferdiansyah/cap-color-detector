@@ -1,16 +1,32 @@
 name: CI/CD
 on: [push, pull_request]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install -r requirements.txt
+          
+      # 1. Install dependencies & dev tools explicit agar tidak error "command not found"
+      - run: |
+          pip install -r requirements.txt
+          pip install black isort pylint pytest
+      
+      # 2. Cek format (Pastikan kamu sudah run 'black .' di laptopmu!)
       - run: black --check .
+      
+      # 3. Cek urutan import
       - run: isort --check .
+      
+      # 4. Cek kualitas code (pakai || true agar warning tidak membatalkan build)
       - run: pylint bsort || true
-      - run: pytest tests -v
+      
+      # 5. Jalankan test (pastikan nama folder 'test' sesuai strukturmu)
+      - run: pytest test -v
+      
+      # 6. Build Docker
       - run: docker build -t cap-color-detector .

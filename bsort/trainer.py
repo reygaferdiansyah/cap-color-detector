@@ -1,9 +1,12 @@
-import yaml
+from typing import Any, Dict
+
 import torch
-from typing import Dict, Any
+import yaml
 from ultralytics import YOLO
+
 from .utils import download_dataset
 from .wandb_utils import init_wandb
+
 
 def train_model(config_path: str) -> None:
     """Trains a YOLO model using parameters from a YAML configuration file.
@@ -79,7 +82,7 @@ def train_model(config_path: str) -> None:
         conf=cfg["training"]["val_conf"],
         iou=cfg["training"]["val_iou"],
         plots=True,
-        save_json=True
+        save_json=True,
     )
 
     wandb_run.finish()

@@ -1,11 +1,10 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import List, Optional, Dict
+from typing import Dict, List, Optional
 
 from ultralytics import YOLO
 from ultralytics.engine.results import Results
-
 
 # Dictionary containing paths to all trained models
 AVAILABLE_MODELS = {

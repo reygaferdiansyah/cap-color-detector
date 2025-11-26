@@ -1,8 +1,11 @@
 # test/test_inference.py
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
+
 import pytest
 
-from bsort.inference import run_inference, run_inference_all_models, AVAILABLE_MODELS
+from bsort.inference import (AVAILABLE_MODELS, run_inference,
+                             run_inference_all_models)
+
 
 def test_run_inference_single_model_mocked() -> None:
     """Tests single model inference using a mocked YOLO instance.

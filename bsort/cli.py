@@ -1,6 +1,7 @@
 import click
-from .trainer import train_model
+
 from .inference import run_inference, run_inference_all_models
+from .trainer import train_model
 
 
 @click.group()
@@ -28,16 +29,24 @@ def train(config: str) -> None:
 
 @cli.command()
 @click.argument("source")
-@click.option("--model", "-m", default="yolov12m",
-              type=click.Choice(["yolov12n", "yolov12s", "yolov12m",
-                                 "yolov11n", "yolov11s", "yolov11m"]),
-              help="Select specific model")
-@click.option("--all", "run_all", is_flag=True,
-              help="Run ALL 6 models simultaneously (Flex Mode)")
+@click.option(
+    "--model",
+    "-m",
+    default="yolov12m",
+    type=click.Choice(
+        ["yolov12n", "yolov12s", "yolov12m", "yolov11n", "yolov11s", "yolov11m"]
+    ),
+    help="Select specific model",
+)
+@click.option(
+    "--all", "run_all", is_flag=True, help="Run ALL 6 models simultaneously (Flex Mode)"
+)
 @click.option("--conf", default=0.35, type=float, help="Confidence threshold")
 @click.option("--show", is_flag=True, help="Display results in a window")
 @click.option("--crop", is_flag=True, help="Save cropped objects")
-def infer(source: str, model: str, run_all: bool, conf: float, show: bool, crop: bool) -> None:
+def infer(
+    source: str, model: str, run_all: bool, conf: float, show: bool, crop: bool
+) -> None:
     """Runs inference on the cap detector.
 
     Examples:
