@@ -104,6 +104,17 @@ It achieved the **highest mAP@50-95 (74.4%)** and near-perfect **Recall (99.9%)*
 ### F1 Curve
 ![F1 Curve](yolov12/nano/final_v12_nano/BoxF1_curve.png)
 
+Near-Perfect Performance: The model achieves a peak F1-Score of 0.96. This is an exceptionally high score, indicating that the model excels at balancing Precision (accuracy of predictions) and Recall (ability to find all objects). It produces almost zero false alarms and misses very few targets.
+
+Optimal Confidence Threshold: The best performance is observed at a Confidence Threshold of 0.606.
+
+Actionable Insight: For deployment (inference), it is recommended to set the confidence filter to 0.60. This is the "sweet spot" where the model operates at maximum efficiency.
+
+Detection Stability (Robustness): The curve remains flat and high across the 0.2 to 0.8 confidence range. This demonstrates high stability; the model is confident in its predictions and performs consistently even if lighting conditions or object positions vary slightly.
+
+Class Dominance: The curves for Dark-Blue and Light-Blue maintain high scores for longer than other classes. This proves the model is highly effective at distinguishing between subtle blue color nuances (the core feature of this project) compared to the Others category.
+
+
 ### Confusion Matrices
 Normalized:
 ![Normalized Confusion Matrix](yolov12/nano/final_v12_nano/confusion_matrix_normalized.png)
@@ -120,3 +131,4 @@ Original:
 ## 👤 Author
 
 Reyga Ferdiansyah
+
