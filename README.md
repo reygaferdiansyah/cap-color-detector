@@ -151,11 +151,38 @@ Insight: The model "hallucinated" 2 Dark-Blue caps in empty space. This suggests
 ### Results
 ![Results](yolov12/nano/final_v12_nano/results.png)
 
+
+Training & Validation Curves Analysis:
+
+Rapid and Stable Convergence: The train/cls_loss (Classification Loss) and train/box_loss drop sharply within the first 50 epochs and continue to decrease steadily. This indicates the model learned the features of the bottle caps very quickly and efficiently.
+
+Near-Perfect Detection Metrics: The metrics on the right (precision, recall, and mAP50) skyrocket early and stabilize near 1.0. This confirms the model is extremely accurate, consistently finding all objects with high confidence.
+
+No Signs of Overfitting: The Validation Loss (val/cls_loss) follows the same downward trend as the Training Loss.
+
+Insight: Even though the val/box_loss appears slightly "noisy" or jagged (which is normal for small validation datasets), it maintains a downward trend. This proves the model generalizes well to new data and is not just memorizing the training set.
+
+Continuous Box Refinement: While mAP50 plateaus early (meaning it finds the object easily), the mAP50-95 curve continues to rise steadily until the end. This shows that throughout the training, the model kept refining the exact coordinates of the bounding boxes to be more and more precise.
+
+
 ### Sample Prediction
 ![Sample Prediction](yolov12/nano/final_v12_nano/val_batch0_pred.jpg)
+
+Visual Prediction Analysis (Qualitative Results):
+
+High Confidence Accuracy: The bounding boxes show very high confidence scores, mostly ranging between 0.9 and 1.0 (e.g., Dark-Blue 1.0). This visually confirms the statistical metrics; the model is extremely certain about its classifications and localizations.
+
+Robust Class Separation: In the top-left image, the model successfully detects multiple classes simultaneously (Light-Blue vs. Others) within the same frame without confusion. It correctly identifies the greenish caps as "Others" and the blue ones as "Light-Blue," demonstrating excellent feature discrimination.
+
+Edge Detection Capability: In the bottom-left image (top edge), the model detects caps that are partially cut off by the camera frame.
+
+Insight: Although the confidence drops for these partial objects (0.3 and 0.6), the model still successfully detects them. This proves the model is robust enough to handle objects entering or leaving the conveyor belt, not just perfectly centered ones.
+
+
 
 ## 👤 Author
 
 Reyga Ferdiansyah
+
 
 
